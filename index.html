@@ -121,15 +121,35 @@
 <span class="text-2xl font-black italic">VAILLANT</span>
 <span class="text-2xl font-black italic">BULEX</span>
 <span class="text-2xl font-black italic">REMEHA</span>
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-yellow-500">star</span>
-<span class="material-symbols-outlined text-yellow-500">star</span>
-<span class="material-symbols-outlined text-yellow-500">star</span>
-<span class="material-symbols-outlined text-yellow-500">star</span>
-<span class="material-symbols-outlined text-yellow-500">star_half</span>
-<span class="ml-2 font-bold text-[#0d1b11] dark:text-white">4.8/5 (2.4k reviews)</span>
 </div>
 </div>
+</div>
+</section>
+<section class="py-20 bg-white dark:bg-background-dark border-y border-[#e7f3ea] dark:border-white/5">
+<div class="max-w-[900px] mx-auto px-4">
+<div class="text-center mb-10">
+<div class="mx-auto w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">format_quote</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-black">Wat klanten zeggen</h2>
+</div>
+<div class="bg-white dark:bg-[#1a3522] border border-[#cfe7d5] dark:border-white/10 rounded-2xl shadow-xl p-8 md:p-10 relative">
+<p id="review-quote" class="text-lg md:text-xl leading-relaxed italic mb-6">"Zeer vlotte service! Binnen de 24 uur had ik een afspraak en de technieker was uiterst professioneel."</p>
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div>
+<p id="review-author" class="font-bold">Thomas B.</p>
+<p id="review-meta" class="text-sm opacity-70">Ketelonderhoud, Antwerpen</p>
+</div>
+<div class="flex items-center gap-3">
+<button id="review-prev" class="w-10 h-10 rounded-full border border-[#cfe7d5] dark:border-white/20 flex items-center justify-center hover:bg-primary hover:text-[#0d1b11] transition-colors" aria-label="Vorige review">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button id="review-next" class="w-10 h-10 rounded-full border border-[#cfe7d5] dark:border-white/20 flex items-center justify-center hover:bg-primary hover:text-[#0d1b11] transition-colors" aria-label="Volgende review">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div id="review-dots" class="flex gap-2 mt-6"></div>
 </div>
 </div>
 </section>
@@ -391,5 +411,66 @@ document.querySelectorAll('[data-faq]').forEach((btn) => {
         }
     });
 });
+const reviews = [
+    {
+        quote: 'Zeer vlotte service! Binnen de 24 uur had ik een afspraak en de technieker was uiterst professioneel.',
+        author: 'Thomas B.',
+        meta: 'Ketelonderhoud, Antwerpen',
+    },
+    {
+        quote: 'Duidelijke prijsafspraak, vriendelijke techniekers en alles netjes achtergelaten. Aanrader.',
+        author: 'Sarah V.',
+        meta: 'Mazoutketel, Gent',
+    },
+    {
+        quote: 'Snel contact en het attest meteen in mijn mailbox. Topervaring.',
+        author: 'Jeroen L.',
+        meta: 'Gasketel, Leuven',
+    },
+];
+
+const quoteEl = document.getElementById('review-quote');
+const authorEl = document.getElementById('review-author');
+const metaEl = document.getElementById('review-meta');
+const dotsEl = document.getElementById('review-dots');
+const prevBtn = document.getElementById('review-prev');
+const nextBtn = document.getElementById('review-next');
+
+let currentReview = 0;
+
+function renderReview(index) {
+    const r = reviews[index];
+    if (!r) return;
+    if (quoteEl) quoteEl.textContent = `"${r.quote}"`;
+    if (authorEl) authorEl.textContent = r.author;
+    if (metaEl) metaEl.textContent = r.meta;
+    if (dotsEl) {
+        dotsEl.innerHTML = '';
+        reviews.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = `w-2.5 h-2.5 rounded-full ${i === index ? 'bg-primary' : 'bg-[#cfe7d5] dark:bg-white/30'}`;
+            dot.setAttribute('aria-label', `Ga naar review ${i + 1}`);
+            dot.addEventListener('click', () => {
+                currentReview = i;
+                renderReview(currentReview);
+            });
+            dotsEl.appendChild(dot);
+        });
+    }
+}
+
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+        renderReview(currentReview);
+    });
+    nextBtn.addEventListener('click', () => {
+        currentReview = (currentReview + 1) % reviews.length;
+        renderReview(currentReview);
+    });
+}
+if (quoteEl && authorEl && metaEl) {
+    renderReview(currentReview);
+}
 </script>
 </body></html>
