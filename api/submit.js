@@ -8,6 +8,8 @@ const SMTP_HOST = process.env.SMTP_HOST;
 const SMTP_PORT = Number(process.env.SMTP_PORT || 0);
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
+const SMTP_SECURE = (process.env.SMTP_SECURE || '').toLowerCase() === 'true';
+const SMTP_REQUIRE_TLS = (process.env.SMTP_REQUIRE_TLS || '').toLowerCase() === 'true';
 const MAIL_TO = process.env.MAIL_TO || 'sander@onlion.be';
 const MAIL_FROM = process.env.MAIL_FROM || 'no-reply@mijnvergelijker.com';
 
@@ -53,8 +55,9 @@ async function sendEmail(payload) {
     const transporter = nodemailer.createTransport({
         host: SMTP_HOST,
         port: SMTP_PORT,
-        secure: SMTP_PORT === 465, // common secure port
+        secure: SMTP_SECURE || SMTP_PORT === 465, // SSL
         auth: { user: SMTP_USER, pass: SMTP_PASS },
+        requireTLS: SMTP_REQUIRE_TLS || SMTP_PORT === 587,
     });
 
     const { name, phone, postal, boilerType } = payload;
