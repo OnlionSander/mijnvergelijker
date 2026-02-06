@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bedankt voor je aanvraag | mijnvergelijker.com</title>
+  <style>
+    :root {
+      --bg: #0d1b11;
+      --card: #12271a;
+      --text: #e7f3ea;
+      --accent: #13ec49;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #0d1b11 0%, #0f1f15 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 640px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 36px);
+      color: #fff;
+    }
+    p { margin: 8px 0; opacity: 0.85; }
+    .accent {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(19,236,73,0.12);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #0d1b11;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+      box-shadow: 0 10px 40px rgba(19,236,73,0.35);
+    }
+    a.button:hover { transform: translateY(-1px); }
+    a.button:active { transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="accent">
+      <span>✔</span><span>Aanvraag ontvangen</span>
+    </div>
+    <h1>Bedankt voor je aanvraag!</h1>
+    <p>We bekijken je gegevens en koppelen je aan een technieker in je buurt.</p>
+    <p>Je ontvangt binnen 24 uur een reactie met de vervolgstappen.</p>
+    <a class="button" href="/">Terug naar de homepage</a>
+  </div>
+</body>
+</html>
