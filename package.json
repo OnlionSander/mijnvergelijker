@@ -1,0 +1,13 @@
+{
+  "name": "mijnvergelijker-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "lint": "echo \"No lint configured\""
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.0",
+    "googleapis": "^134.0.0"
+  }
+}
