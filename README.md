@@ -1,10 +1,13 @@
 # mijnvergelijker landing
 
-Static landing met serverless endpoint voor formulier-verwerking (Sheets + e-mail).
+Static landing met serverless endpoint voor formulier-verwerking (e-mail, optioneel Sheets).
 
 ## Deploy (Vercel)
-Minimaal nodig:
-- `SENDGRID_API_KEY`
+Minimaal nodig (SMTP):
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASS`
 - `MAIL_FROM` (bv. `no-reply@mijnvergelijker.com`)
 - `MAIL_TO` (ontvanger, standaard `sander@onlion.be`)
 
@@ -24,5 +27,5 @@ vercel dev
 
 ## Wat gebeurt er bij submit?
 - `/api/submit` valideert invoer.
-- Stuurt een e-mail via SendGrid met naam/telefoon/postcode/keteltype.
+- Stuurt een e-mail via SMTP met naam/telefoon/postcode/keteltype.
 - Als Sheets-variabelen aanwezig zijn, logt het ook een rij in de spreadsheet.
