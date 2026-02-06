@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ketelonderhoud - mijnvergelijker.com</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec49",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-size: 24px; vertical-align: middle; }
+        button:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 2px solid #13ec49;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d1b11] dark:text-white">
+<div class="relative flex flex-col min-h-screen w-full overflow-x-hidden">
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#e7f3ea] dark:border-[#1a3522] px-4 md:px-20 py-4">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">energy_savings_leaf</span>
+<h2 class="text-xl font-bold tracking-tight">mijnvergelijker.com</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Diensten</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Tarieven</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">FAQ</a>
+<button class="bg-primary text-[#0d1b11] px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity" aria-label="Vraag onderhoud aan">
+                Vraag onderhoud aan
+            </button>
+</nav>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative bg-[#0d1b11] text-white py-16 md:py-24 overflow-hidden">
+<div class="absolute inset-0 opacity-40">
+<img alt="Professional boiler technician at work" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6wDuFiYlIrxglICKMiLtlA-RE6iWPmIDcO4EmUNANid-uXVgvugHEPIpZLPBvt12pb9sMzDvXUNVUhD4KMvLUXNcXeVlecBsALqjJmQOTWQaZL53Kjlf5KdIuxr72sFoqSI4MMm6fDt6Z30__w2M4n5Y9p1-AmngqtZVvZReTUV6LdlxgK_ZJbcftb_g_ac9EKpzrF3vww43esctWoWXB6mTSyPsqLTq52iQLZzVIN_4vnO2y38L0aaRXdrA1FNNyLOd4TWqkyRA6"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#0d1b11] via-[#0d1b11]/80 to-transparent"></div>
+<div class="max-w-[1200px] mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                Snel &amp; erkend ketelonderhoud bij jou in de buurt
+            </h1>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-lg">Wettelijk in orde &amp; officieel attest</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">engineering</span>
+<span class="text-lg">Gecertificeerde techniekers</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">bolt</span>
+<span class="text-lg">Snel contact binnen 24u</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="bg-primary text-[#0d1b11] px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/20" aria-label="Vraag je ketelonderhoud aan">
+                    Vraag je onderhoud aan
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a3522] p-8 rounded-xl shadow-2xl text-[#0d1b11] dark:text-white border border-[#e7f3ea] dark:border-white/10">
+<h3 class="text-xl font-bold mb-6">Ontvang direct een vrijblijvende offerte</h3>
+<form class="space-y-4">
+<div>
+<label class="block text-sm font-medium mb-1 opacity-70">Postcode</label>
+<input class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" placeholder="bv. 1000" type="text" required/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1 opacity-70">Type Ketel</label>
+<select class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" required>
+<option>Gas</option>
+<option>Mazout</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium mb-1 opacity-70">Naam</label>
+<input class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" placeholder="Je naam" type="text" required/>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1 opacity-70">Telefoon</label>
+<input class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" placeholder="0470 00 00 00" type="tel" required/>
+</div>
+</div>
+<button class="w-full bg-primary text-[#0d1b11] py-4 rounded-lg font-bold text-lg mt-4 hover:opacity-95">
+                    Verzend Aanvraag
+                </button>
+</form>
+</div>
+</div>
+</section>
+<section class="py-12 bg-white dark:bg-background-dark border-b border-[#e7f3ea] dark:border-white/5">
+<div class="max-w-[1200px] mx-auto px-4">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+<span class="text-sm font-bold uppercase tracking-widest">Aanbevolen door experts:</span>
+<div class="flex flex-wrap justify-center gap-12 items-center">
+<span class="text-2xl font-black italic">VAILLANT</span>
+<span class="text-2xl font-black italic">BULEX</span>
+<span class="text-2xl font-black italic">REMEHA</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star</span>
+<span class="material-symbols-outlined text-yellow-500">star_half</span>
+<span class="ml-2 font-bold text-[#0d1b11] dark:text-white">4.8/5 (2.4k reviews)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 max-w-[1200px] mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black mb-4">Waarom uw ketel onderhouden?</h2>
+<p class="text-lg opacity-70">Zorg voor uw veiligheid en bespaar direct op uw energiefactuur.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="p-8 bg-white dark:bg-[#1a3522] rounded-xl border border-[#cfe7d5] dark:border-white/10 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">gavel</span>
+</div>
+<h3 class="text-xl font-bold">Wettelijk verplicht</h3>
+<p class="text-sm opacity-70">Voldoe aan de Belgische wetgeving en voorkom boetes of problemen met de verzekering.</p>
+</div>
+<div class="p-8 bg-white dark:bg-[#1a3522] rounded-xl border border-[#cfe7d5] dark:border-white/10 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">health_and_safety</span>
+</div>
+<h3 class="text-xl font-bold">CO-Preventie</h3>
+<p class="text-sm opacity-70">Voorkom koolstofmonoxidevergiftiging. Wij controleren op lekken en optimale verbranding.</p>
+</div>
+<div class="p-8 bg-white dark:bg-[#1a3522] rounded-xl border border-[#cfe7d5] dark:border-white/10 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">eco</span>
+</div>
+<h3 class="text-xl font-bold">Bespaar Energie</h3>
+<p class="text-sm opacity-70">Een schone ketel werkt efficiënter. Bespaar tot 12% op je jaarlijkse energiefactuur.</p>
+</div>
+<div class="p-8 bg-white dark:bg-[#1a3522] rounded-xl border border-[#cfe7d5] dark:border-white/10 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">timer</span>
+</div>
+<h3 class="text-xl font-bold">Langer Meegaan</h3>
+<p class="text-sm opacity-70">Regelmatig onderhoud verlengt de levensduur van uw toestel aanzienlijk.</p>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-light dark:bg-[#0d1b11]/50 border-y border-[#e7f3ea] dark:border-white/5">
+<div class="max-w-[1200px] mx-auto px-4">
+<h2 class="text-3xl md:text-4xl font-black mb-16 text-center">Hoe het werkt</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
+<div class="flex flex-col items-center gap-6">
+<div class="flex-none w-16 h-16 rounded-full bg-primary text-[#0d1b11] flex items-center justify-center font-bold text-2xl">1</div>
+<div>
+<h4 class="text-xl font-bold mb-3">Geef je postcode in</h4>
+<p class="opacity-70">Wij zoeken direct naar de best beoordeelde techniekers bij jou in de buurt.</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="flex-none w-16 h-16 rounded-full bg-primary text-[#0d1b11] flex items-center justify-center font-bold text-2xl">2</div>
+<div>
+<h4 class="text-xl font-bold mb-3">Ontvang een match</h4>
+<p class="opacity-70">Wij koppelen je aan een gecertificeerde professional die gespecialiseerd is in jouw merk.</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="flex-none w-16 h-16 rounded-full bg-primary text-[#0d1b11] flex items-center justify-center font-bold text-2xl">3</div>
+<div>
+<h4 class="text-xl font-bold mb-3">Maak je afspraak</h4>
+<p class="opacity-70">De technieker neemt contact op om een moment te prikken dat voor jou past.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 max-w-[1200px] mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-black mb-4">Eerlijke &amp; Transparante Prijzen</h2>
+<p class="text-lg opacity-70">Geen verborgen kosten, inclusief verplaatsing en attest.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-white dark:bg-[#1a3522] p-10 rounded-2xl border-2 border-[#cfe7d5] dark:border-white/10 relative overflow-hidden">
+<div class="mb-6">
+<span class="text-primary font-bold uppercase tracking-widest text-sm">Ketel op Gas</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-5xl font-black">€149</span>
+<span class="opacity-60">incl. BTW</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Reiniging van de brander</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Controle van de rookgasafvoer</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Officieel verbrandingsattest</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Verplaatsingskosten inbegrepen</span>
+</li>
+</ul>
+<button class="w-full py-4 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-[#0d1b11] transition-all">Selecteer Gas</button>
+</div>
+<div class="bg-white dark:bg-[#1a3522] p-10 rounded-2xl border-2 border-[#cfe7d5] dark:border-white/10">
+<div class="mb-6">
+<span class="text-primary font-bold uppercase tracking-widest text-sm">Ketel op Mazout</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-5xl font-black">€189</span>
+<span class="opacity-60">incl. BTW</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Vervanging van de verstuiver</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Reiniging van de ketel &amp; schouw</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Officieel verbrandingsattest</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Afstelling voor optimaal rendement</span>
+</li>
+</ul>
+<button class="w-full py-4 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-[#0d1b11] transition-all">Selecteer Mazout</button>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-light dark:bg-[#0d1b11]/50">
+<div class="max-w-[800px] mx-auto px-4">
+<h2 class="text-3xl font-black mb-12 text-center">Veelgestelde vragen</h2>
+<div class="space-y-4">
+<div class="bg-white dark:bg-[#1a3522] p-6 rounded-xl border border-[#cfe7d5] dark:border-white/10">
+<button data-faq class="w-full flex justify-between items-center text-left font-bold text-lg" aria-expanded="false">
+<span>Hoe vaak is onderhoud verplicht?</span>
+<span class="material-symbols-outlined transition-transform" aria-hidden="true">expand_more</span>
+</button>
+<div class="pt-4 text-sm opacity-80 hidden">
+In Vlaanderen en Brussel is onderhoud van een gasketel verplicht om de 2 jaar en van een mazoutketel jaarlijks. In Wallonië is het jaarlijks voor beide brandstoffen.
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a3522] p-6 rounded-xl border border-[#cfe7d5] dark:border-white/10">
+<button data-faq class="w-full flex justify-between items-center text-left font-bold text-lg" aria-expanded="false">
+<span>Ontvang ik een officieel attest?</span>
+<span class="material-symbols-outlined transition-transform" aria-hidden="true">expand_more</span>
+</button>
+<div class="pt-4 text-sm opacity-80 hidden">
+Ja. Je technieker bezorgt het verbrandingsattest meteen na het bezoek digitaal en op papier indien gewenst.
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a3522] p-6 rounded-xl border border-[#cfe7d5] dark:border-white/10">
+<button data-faq class="w-full flex justify-between items-center text-left font-bold text-lg" aria-expanded="false">
+<span>Is de prijs inclusief verplaatsingskosten?</span>
+<span class="material-symbols-outlined transition-transform" aria-hidden="true">expand_more</span>
+</button>
+<div class="pt-4 text-sm opacity-80 hidden">
+Ja, alle verplaatsingskosten en het attest zijn inbegrepen. Geen verborgen toeslagen.
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a3522] p-6 rounded-xl border border-[#cfe7d5] dark:border-white/10">
+<button data-faq class="w-full flex justify-between items-center text-left font-bold text-lg" aria-expanded="false">
+<span>Kan ik ook terecht voor herstellingen?</span>
+<span class="material-symbols-outlined transition-transform" aria-hidden="true">expand_more</span>
+</button>
+<div class="pt-4 text-sm opacity-80 hidden">
+Ja, we plannen herstellingen en dringende interventies. Voor spoed kan er een toeslag gelden; we bespreken dit vooraf.
+</div>
+</div>
+<div class="bg-white dark:bg-[#1a3522] p-6 rounded-xl border border-[#cfe7d5] dark:border-white/10">
+<button data-faq class="w-full flex justify-between items-center text-left font-bold text-lg" aria-expanded="false">
+<span>Welke merken onderhouden jullie?</span>
+<span class="material-symbols-outlined transition-transform" aria-hidden="true">expand_more</span>
+</button>
+<div class="pt-4 text-sm opacity-80 hidden">
+Onder meer Vaillant, Bulex, Junkers, Buderus, Remeha, Viessmann, ACV en andere gangbare merken.
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#0d1b11] text-white py-16 px-4">
+<div class="max-w-[1200px] mx-auto text-center">
+<h2 class="text-3xl md:text-5xl font-black mb-6">Klaar om te besparen?</h2>
+<p class="text-xl mb-10 opacity-70">Wacht niet tot het te laat is. Voorkom pannes deze winter.</p>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<button class="bg-primary text-[#0d1b11] px-10 py-5 rounded-lg font-bold text-xl hover:scale-105 transition-transform" aria-label="Vraag nu onderhoud aan">
+                Vraag Nu Onderhoud Aan
+            </button>
+<div class="flex items-center gap-4">
+<span class="text-lg opacity-60">of bel direct:</span>
+<a class="text-2xl font-black hover:text-primary transition-colors" href="tel:080000000">0800 123 456</a>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-60 text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">energy_savings_leaf</span>
+<span class="font-bold">mijnvergelijker.com</span>
+</div>
+<div class="flex gap-8">
+<a class="hover:underline" href="#">Privacybeleid</a>
+<a class="hover:underline" href="#">Gebruiksvoorwaarden</a>
+<a class="hover:underline" href="#">Contact</a>
+</div>
+<p>© 2024 mijnvergelijker.com - Alle rechten voorbehouden</p>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+document.querySelectorAll('[data-faq]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', (!expanded).toString());
+        if (content) {
+            content.classList.toggle('hidden', expanded);
+        }
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) {
+            icon.classList.toggle('rotate-180', !expanded);
+        }
+    });
+});
+</script>
+</body></html>
