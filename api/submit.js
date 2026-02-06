@@ -99,7 +99,7 @@ module.exports = async (req, res) => {
     if (error) return res.status(400).json({ error });
 
     if (!SHEET_ID || !SERVICE_EMAIL || !RAW_SERVICE_KEY) {
-        return res.status(500).json({ error: 'Sheets-config ontbreekt' });
+        return res.status(503).json({ error: 'Sheets-config ontbreekt: zet GOOGLE_SHEETS_ID, GOOGLE_SERVICE_ACCOUNT_EMAIL en GOOGLE_SERVICE_ACCOUNT_KEY in Vercel.' });
     }
 
     const privateKey = normalizePrivateKey(RAW_SERVICE_KEY);

@@ -365,13 +365,14 @@ if (form && statusEl) {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data),
             });
-            if (!res.ok) throw new Error('Server gaf een fout terug');
+            const payload = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(payload.error || 'Server gaf een fout terug');
             statusEl.classList.add('text-green-700');
             statusEl.textContent = 'Bedankt! Je aanvraag is verzonden.';
             form.reset();
         } catch (err) {
             statusEl.classList.add('text-red-700');
-            statusEl.textContent = 'Er ging iets mis. Probeer later opnieuw of bel ons.';
+            statusEl.textContent = err.message || 'Er ging iets mis. Probeer later opnieuw of bel ons.';
         }
     });
 }
