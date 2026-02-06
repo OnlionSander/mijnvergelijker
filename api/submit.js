@@ -140,6 +140,7 @@ module.exports = async (req, res) => {
         return res.status(200).json({ ok: true });
     } catch (err) {
         console.error('Submission error', err);
-        return res.status(500).json({ error: 'Verwerking mislukt' });
+        const msg = err && err.message ? err.message : 'Verwerking mislukt';
+        return res.status(500).json({ error: msg });
     }
 };
