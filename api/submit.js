@@ -98,16 +98,20 @@ module.exports = async (req, res) => {
     const error = validate(body);
     if (error) return res.status(400).json({ error });
 
-    if (!SHEET_ID || !SERVICE_EMAIL || !RAW_SERVICE_KEY) {
-        return res.status(503).json({ error: 'Sheets-config ontbreekt: zet GOOGLE_SHEETS_ID, GOOGLE_SERVICE_ACCOUNT_EMAIL en GOOGLE_SERVICE_ACCOUNT_KEY in Vercel.' });
+    if (!SENDGRID_KEY) {
+        return res.status(503).json({ error: 'E-mailconfig ontbreekt: zet SENDGRID_API_KEY in Vercel.' });
     }
 
-    const privateKey = normalizePrivateKey(RAW_SERVICE_KEY);
-    const jwt = new google.auth.JWT({
-        email: SERVICE_EMAIL,
-        key: privateKey,
-        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    });
+    const hasSheetsConfig = SHEET_ID && SERVICE_EMAIL && RAW_SERVICE_KEY;
+    let jwt = null;
+    if (hasSheetsConfig) {
+        const privateKey = normalizePrivateKey(RAW_SERVICE_KEY);
+        jwt = new google.auth.JWT({
+            email: SERVICE_EMAIL,
+            key: privateKey,
+            scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+        });
+    }
 
     const now = new Date().toISOString();
     const row = [
@@ -120,8 +124,10 @@ module.exports = async (req, res) => {
     ];
 
     try {
-        await jwt.authorize();
-        await appendToSheet(jwt, row);
+        if (jwt) {
+            await jwt.authorize();
+            await appendToSheet(jwt, row);
+        }
         await sendEmail(body);
         return res.status(200).json({ ok: true });
     } catch (err) {
