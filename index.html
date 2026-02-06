@@ -32,6 +32,7 @@
             outline: 2px solid #13ec49;
             outline-offset: 2px;
         }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#0d1b11] dark:text-white">
@@ -43,9 +44,8 @@
 <h2 class="text-xl font-bold tracking-tight">mijnvergelijker.com</h2>
 </div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Diensten</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Tarieven</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">FAQ</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#how-it-works">Hoe het werkt</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#faq">FAQ</a>
 <button class="bg-primary text-[#0d1b11] px-5 py-2 rounded-lg font-bold text-sm hover:opacity-90 transition-opacity" aria-label="Vraag onderhoud aan">
                 Vraag onderhoud aan
             </button>
@@ -179,7 +179,7 @@
 </div>
 </div>
 </section>
-<section class="py-20 bg-background-light dark:bg-[#0d1b11]/50 border-y border-[#e7f3ea] dark:border-white/5">
+<section id="how-it-works" class="py-20 bg-background-light dark:bg-[#0d1b11]/50 border-y border-[#e7f3ea] dark:border-white/5">
 <div class="max-w-[1200px] mx-auto px-4">
 <h2 class="text-3xl md:text-4xl font-black mb-16 text-center">Hoe het werkt</h2>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center">
@@ -207,7 +207,7 @@
 </div>
 </div>
 </section>
-<section class="py-20 bg-background-light dark:bg-[#0d1b11]/50">
+<section id="faq" class="py-20 bg-background-light dark:bg-[#0d1b11]/50">
 <div class="max-w-[800px] mx-auto px-4">
 <h2 class="text-3xl font-black mb-12 text-center">Veelgestelde vragen</h2>
 <div class="space-y-4">
