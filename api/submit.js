@@ -1,10 +1,13 @@
 const { google } = require('googleapis');
-const sgMail = require('@sendgrid/mail');
+const nodemailer = require('nodemailer');
 
 const SHEET_ID = process.env.GOOGLE_SHEETS_ID;
 const SERVICE_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const RAW_SERVICE_KEY = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
-const SENDGRID_KEY = process.env.SENDGRID_API_KEY;
+const SMTP_HOST = process.env.SMTP_HOST;
+const SMTP_PORT = Number(process.env.SMTP_PORT || 0);
+const SMTP_USER = process.env.SMTP_USER;
+const SMTP_PASS = process.env.SMTP_PASS;
 const MAIL_TO = process.env.MAIL_TO || 'sander@onlion.be';
 const MAIL_FROM = process.env.MAIL_FROM || 'no-reply@mijnvergelijker.com';
 
@@ -43,8 +46,17 @@ async function appendToSheet(auth, row) {
 }
 
 async function sendEmail(payload) {
-    if (!SENDGRID_KEY) throw new Error('SENDGRID_API_KEY ontbreekt');
-    sgMail.setApiKey(SENDGRID_KEY);
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
+        throw new Error('SMTP-config ontbreekt: zet SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS in Vercel.');
+    }
+
+    const transporter = nodemailer.createTransport({
+        host: SMTP_HOST,
+        port: SMTP_PORT,
+        secure: SMTP_PORT === 465, // common secure port
+        auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
+
     const { name, phone, postal, boilerType } = payload;
     const msg = {
         to: MAIL_TO,
@@ -63,7 +75,7 @@ async function sendEmail(payload) {
             <p><strong>Ketel:</strong> ${boilerType}</p>
         `,
     };
-    return sgMail.send(msg);
+    return transporter.sendMail(msg);
 }
 
 function parseBody(req) {
@@ -97,10 +109,6 @@ module.exports = async (req, res) => {
 
     const error = validate(body);
     if (error) return res.status(400).json({ error });
-
-    if (!SENDGRID_KEY) {
-        return res.status(503).json({ error: 'E-mailconfig ontbreekt: zet SENDGRID_API_KEY in Vercel.' });
-    }
 
     const hasSheetsConfig = SHEET_ID && SERVICE_EMAIL && RAW_SERVICE_KEY;
     let jwt = null;
