@@ -71,7 +71,7 @@ async function sendEmail(payload) {
     const msg = {
         to: MAIL_TO,
         from: MAIL_FROM,
-        subject: `Nieuwe onderhoudsaanvraag (${postal})`,
+        subject: `Nieuwe aanvraag - mijnvergelijker`,
         text: [
             `Naam: ${name}`,
             `Telefoon: ${phone}`,
