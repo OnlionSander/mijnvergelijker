@@ -31,7 +31,14 @@ function validate(body = {}) {
     const { postal, boilerType, name, phone } = body;
     if (!postal || !boilerType || !name || !phone) return 'Alle velden zijn verplicht.';
     if (!/^[0-9]{4}$/.test(postal.trim())) return 'Postcode moet 4 cijfers bevatten.';
-    if (!['Gas', 'Mazout'].includes((boilerType || '').trim())) return 'Ongeldig keteltype.';
+    const allowed = [
+        'Herstelling/interventies CV-ketel',
+        'Onderhoud CV-ketel',
+        'Installatie CV-ketel',
+        'Installatie Airco',
+        'Installatie Warmtepomp',
+    ];
+    if (!allowed.includes((boilerType || '').trim())) return 'Ongeldig keteltype.';
     if (String(name).trim().length < 2) return 'Naam is te kort.';
     if (String(phone).trim().length < 8) return 'Telefoonnummer is te kort.';
     return null;
