@@ -54,6 +54,14 @@ async function appendToSheet(auth, row) {
     });
 }
 
+function parseRecipients(raw) {
+    if (!raw) return [];
+    return raw
+        .split(',')
+        .map((r) => r.trim())
+        .filter(Boolean);
+}
+
 async function sendEmail(payload) {
     if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS) {
         throw new Error('SMTP-config ontbreekt: zet SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS in Vercel.');
@@ -68,8 +76,9 @@ async function sendEmail(payload) {
     });
 
     const { name, phone, postal, boilerType } = payload;
+    const toList = parseRecipients(MAIL_TO);
     const msg = {
-        to: MAIL_TO,
+        to: toList.length ? toList : MAIL_TO,
         from: MAIL_FROM,
         subject: `Nieuwe aanvraag - mijnvergelijker`,
         text: [
