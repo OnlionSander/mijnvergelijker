@@ -105,35 +105,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="flex flex-wrap gap-4 mt-4"></div>
 </div>
 <div class="bg-white dark:bg-[#1a3522] p-8 rounded-xl shadow-2xl text-[#0d1b11] dark:text-white border border-[#e7f3ea] dark:border-white/10">
-<h3 class="text-xl font-bold mb-6">Ontvang direct een vrijblijvende offerte</h3>
+<h3 class="text-xl font-bold mb-6">Ontvang offertes uit jouw regio</h3>
 <form id="quote-form" class="space-y-4" novalidate>
 <div>
 <label class="block text-sm font-medium mb-1 opacity-70">Postcode</label>
 <input name="postal" class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" placeholder="bv. 1000" type="text" required/>
 </div>
-<div>
-<label class="block text-sm font-medium mb-1 opacity-70">Waarvoor wil je een offerte ontvangen?</label>
-<select name="boilerType" class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" required>
-<option>Herstelling/interventies CV-ketel</option>
-<option>Onderhoud CV-ketel</option>
-<option>Installatie CV-ketel</option>
-<option>Installatie Airco</option>
-<option>Installatie Warmtepomp</option>
-</select>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div>
-<label class="block text-sm font-medium mb-1 opacity-70">Naam</label>
-<input name="name" class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" placeholder="Je naam" type="text" required/>
-</div>
-<div>
-<label class="block text-sm font-medium mb-1 opacity-70">Telefoon</label>
-<input name="phone" class="w-full rounded-lg border-[#cfe7d5] dark:bg-background-dark dark:border-white/10 focus:ring-primary focus:border-primary" placeholder="0470 00 00 00" type="tel" required/>
-</div>
-</div>
-<div id="form-status" class="text-sm font-medium hidden"></div>
 <button class="w-full bg-primary text-[#0d1b11] py-4 rounded-lg font-bold text-lg mt-4 hover:opacity-95" type="submit">
-                    Vraag je offerte aan
+                    Aanvragen
                 </button>
 </form>
 </div>
@@ -369,35 +348,17 @@ Ja. Kies in het formulier voor "Onderhoud CV-ketel". Je ontvangt dan offertes va
 </div>
 
 <script>
-// Client-side submission handler: posts form data to /api/submit
+// Simplified form: only postcode and direct redirect
 const form = document.getElementById('quote-form');
-const statusEl = document.getElementById('form-status');
-if (form && statusEl) {
-    form.addEventListener('submit', async (e) => {
+if (form) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const data = {
-            postal: form.postal.value.trim(),
-            boilerType: form.boilerType.value.trim(),
-            name: form.name.value.trim(),
-            phone: form.phone.value.trim(),
-        };
-        statusEl.classList.remove('hidden', 'text-green-700', 'text-red-700');
-        statusEl.textContent = 'Versturen...';
-        try {
-            const res = await fetch('/api/submit', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data),
-            });
-            const payload = await res.json().catch(() => ({}));
-            if (!res.ok) throw new Error(payload.error || 'Server gaf een fout terug');
-            statusEl.classList.add('text-green-700');
-            statusEl.textContent = 'Bedankt! Je aanvraag is verzonden.';
-            form.reset();
-        } catch (err) {
-            statusEl.classList.add('text-red-700');
-            statusEl.textContent = err.message || 'Er ging iets mis. Probeer later opnieuw of bel ons.';
+        const postal = form.postal?.value?.trim();
+        if (!postal) {
+            form.postal?.focus();
+            return;
         }
+        window.location.href = 'https://www.mijnvergelijker.com/offertes-vergelijken/';
     });
 }
 </script>
